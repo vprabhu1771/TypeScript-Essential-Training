@@ -1,0 +1,8 @@
+Create Folder 
+
+Hello_Type_Script
+
+
+Create Another Folder 
+
+Hello_Type_Script -> src

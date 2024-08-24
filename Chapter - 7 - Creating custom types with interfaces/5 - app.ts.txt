@@ -1,0 +1,58 @@
+// interface Contact {
+//     id: number;
+//     name: string;
+//     birthDate: Date;
+// }
+// // Correct Way
+// let prabhu: Contact = {
+//     id: 123,
+//     name: "prabhu",
+//     birthDate: new Date("01-02-1990")
+// }
+
+// Date of Birth is Missing
+// interface Contact {
+//     id: number;
+//     name: string;
+//     birthDate: Date;
+// }
+// let prabhu: Contact = {
+//     id: 123,
+//     name: "prabhu",
+//     birthDate: new Date("01-02-1990")
+// }
+
+// Date of Birth is Optional
+// interface Contact {
+//     id: number;
+//     name: string;
+//     // Optional Property
+//     // birthDate?: Date;
+// }
+// let prabhu: Contact = {
+//     id: 123,
+//     name: "prabhu",
+//     birthDate: new Date("01-02-1990")
+// }
+
+// Extend Interface
+interface Contact extends Address {
+    id: number;
+    name: string;
+    birthDate?: Date;
+}
+
+interface Address {
+    line1?: string,
+    line2?: string,
+    province?: string,
+    region?: string,
+    postalCode?: string,
+}
+
+let prabhu: Contact = {
+    id: 12,
+    name: "prabhu",
+    birthDate: new Date("01-01-1990"),
+    postalCode: "123456"
+}

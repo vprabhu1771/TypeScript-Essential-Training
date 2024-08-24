@@ -1,0 +1,3 @@
+under paymentapp -> src -> app 
+
+ng g c payment-details -s --skip-tests

@@ -1,0 +1,34 @@
+// interface Contact {
+//     id: number;
+//     name: string;
+//     birthDate?: Date;
+// }
+
+// let primaryContact: Contact = {
+//     birthDate: new Date("01-01-1998"),
+//     id: 12345,
+//     name: 'Rajesh',
+// }
+
+// Defining your own custom types in called a type alias as its name implies,
+// a type alias is simply providing an alias or alternate name for an already existing type
+
+// You can define a type alias using the type keyword followed by the name of the alias 
+// Then follow that with an equal sign and the type you wish to alias eg: string
+type ContactName = string
+
+
+// now that i've defined the type alias i can use it in any place that i would use the original type
+// eg: i can refactor the contact interface example from the previous example  changing the type 
+// of the name field from string to ContactName
+interface Contact {
+    id: number;
+    name: ContactName;
+    birthDate?: Date;
+}
+
+let primaryContact: Contact = {
+    birthDate: new Date("01-01-1998"),
+    id: 12345,
+    name: 'Rajesh',
+}

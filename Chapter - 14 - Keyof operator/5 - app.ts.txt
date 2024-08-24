@@ -1,0 +1,41 @@
+type ContactName = string;
+
+// Rewrite Enum using type aliases
+type ContactStatus = "active" | "inactive" | "new";
+
+type ContactBirthDate = Date | number | string;
+
+interface Contact {
+    id: number;
+    name: ContactName;
+    birthDate?: ContactBirthDate;
+    status?: ContactStatus;
+}
+
+interface Address {
+    line1: string;
+    line2: string;
+    province: string;
+    region: string;
+    postalCode: string;
+}
+
+let primaryContact: Contact = {
+    id: 12345,
+    name: "Prabhu",
+    status: "active"
+}
+
+type ContactFields = keyof Contact;
+
+function getValue<T>(source: T, propertyName: keyof T) {
+    return source[propertyName]
+}
+
+const field: ContactFields = "name"
+
+const value = getValue(primaryContact, "id")
+
+const value2 = getValue({ min: 1, max: 200 }, "max");
+
+

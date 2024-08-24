@@ -1,0 +1,3 @@
+Create TypeScript file 
+
+Under Hello_Type_Script -> src -> app.ts

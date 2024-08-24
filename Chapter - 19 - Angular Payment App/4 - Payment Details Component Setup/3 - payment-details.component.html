@@ -1,0 +1,54 @@
+<div class="p-5 bg-light text-gray rounded-3 mb-3">
+    
+    <h1 class="display-4 text-center">Payment Detail Register</h1>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <app-payment-detail-form></app-payment-detail-form>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <p>list of payment details</p>
+
+        <table class="table">
+
+            <thead class="thead-light">
+
+                <tr>
+                    <th>Card Owner</th>
+                    <th>Card Number</th>
+                    <th>Exp. Date</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let element of service.list">
+
+                    <td (click)="populateForm(element)">{{ element.cardOwnerName }}</td>
+
+                    <td (click)="populateForm(element)">{{ element.cardNumber }}</td>
+
+                    <td (click)="populateForm(element)">{{ element.expirationDate }}</td>
+
+                    <td>
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(element)"></i>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+    
+</div>

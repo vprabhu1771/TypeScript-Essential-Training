@@ -1,0 +1,83 @@
+// In Previous Example I Showed yow how to apply type information to variables
+// But seeing as how functions are a very important part of JavaScript development
+// it's nice to know that this same syntax can be applied to them as well
+// interface Contact {
+//     id: number;
+//     name: string;
+// }
+
+// For example this is a JavaScript function that accepts an object and returns a clone of that object
+// function clone(source) {
+//     return Object.apply({}, source);
+// }
+
+// If we wanted to restrict this method to only allow contact types as input parameters
+// we could simple apply a type to the parameter like this
+
+// function clone(source: Contact) {
+//     return Object.apply({}, source);
+// }
+
+// Now for the return type since TypeScript is incredibly intelligent about reading your code and inferring types
+// for many function you can usually get away with not supplying a return type at all
+// eg: if this method were simple to return the parameter it was given
+// i can see that TypeScript has correctly determined the return type will be contact
+// function clone(source: Contact) {
+    // return source;
+
+    // Likewise if i were t return a string value
+    // TypeScript says the return type is string
+//     return "Awesome!";
+// }
+
+// it's obvious to us as JavaScript developers that the return type of this function
+// should match the type of the parameter passed into it
+
+// function clone(source: Contact) {
+//     return Object.apply({}, source);
+// }
+
+// const a: Contact = { id: 123, name: "raja" };
+// it seems clear that if the type of variables A is contact
+// and the variable B is a copy of variable A 
+// Then  the type of variable B should also be contact
+// However that's not the case Since the object.apply function used to this clone function returns the any type 
+// that's what TypeScript infers the return type of this whole function to be
+// And since we're assigning that value to variable B that's the type that TypeScript infers variable B to be as well
+// const b = clone(a);
+
+
+// To fix this, we can apply the same type syntax to state the return value of the function that we apply to variables
+// Now, everything is correct
+// function clone(source: Contact):Contact {
+//     return Object.apply({}, source);
+// }
+
+// const a: Contact = { id: 123, name: "raja" };
+
+// const b = clone(a);
+
+
+// In JavaScript, functions can also be passed as variables
+// eg: we can rewrite this clone function to accept a function as a parameter, rather than a object
+// We can, of course, provide type information for function variables as well. It looks like this
+// This resembles a function signature
+// It starts with a list of parameters contained within a pair of parentheses
+
+// In this case, a single parameter named source with the type of contact followed by equals, greater than and then the return value, contact
+// function clone(source: Contact, func: (source: Contact) => Contact):Contact {
+//     return Object.apply({}, source);
+// }
+
+// Finally, there is one last function syntax and that is the way the you would define a method on an interface
+// it looks like this, this syntax is similar to what we just saw but with a colon instead of the arrow syntax we just used
+
+interface Contact {
+    id: number;
+    name: string;
+    // Likewise, if this method were to accept any parameters they would be defined like before
+    // clone(): Contact
+
+    // Now our functions are fully typed
+    clone(name: string): Contact
+}

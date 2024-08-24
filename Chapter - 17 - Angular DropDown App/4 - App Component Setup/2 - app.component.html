@@ -1,0 +1,15 @@
+<div class="container mt-5">
+
+  <select class="form-control" name="category" (change)="ChangeCategory($event)">
+
+    <option>--Select--Category</option>
+
+    <option [value]="category.category_name" *ngFor="let category of listOfCategory">
+
+      {{ category.category_name }}
+
+    </option>
+
+  </select>
+
+</div>

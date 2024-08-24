@@ -1,0 +1,7 @@
+https://getbootstrap.com/docs/5.0/getting-started/introduction/
+
+Under Docs -> Getting Started -> Introduction
+
+CSS
+
+Copy-paste the stylesheet <link> into your <head> before all other stylesheets to load our CSS.

@@ -1,0 +1,13 @@
+go to command prompt 
+
+type following command 
+
+tsc --version
+
+or
+
+tsc -v
+
+output 
+
+Version 4.4.4

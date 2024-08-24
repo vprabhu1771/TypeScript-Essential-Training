@@ -1,0 +1,29 @@
+<form (ngSubmit)="onSubmit(studentForm)" #studentForm="ngForm" autocomplete="off">
+
+  <label for="">Student Name</label> <br>
+  
+  <input type="text" name="studentName" ngModel> <br><br>
+
+  <label for="">Student Gender</label> <br>
+
+  <input type="radio" name="studentGender" value="Male" ngModel>
+  
+  <label for="">Male</label> <br>
+  
+  <input type="radio" name="studentGender" value="Female" ngModel>
+  
+  <label for="">Female</label> <br><br>
+
+
+  <label for="cars">Choose a car:</label> <br>
+
+  <select name="cars" ngModel>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select> <br><br>
+
+  <button type="submit">Submit</button>
+
+</form>

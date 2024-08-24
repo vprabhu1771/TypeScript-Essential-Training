@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+
+    // Compiled Javascript Output File Location
+    "outDir": "build",
+    
+    // Targeted Javascript Version
+    // "target": "ES6"
+
+    // Target latest version javascript automatically
+    "target": "esnext",
+
+    // Disable Comipled Javascript Output File
+    // "noEmit": true
+  },
+
+  // TypeScript Input File Location
+  "include": ["src/**/*"]
+}

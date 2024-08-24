@@ -1,0 +1,3 @@
+under paymentapp -> src -> app -> models
+
+ng g class payment-detail --type=model --skip-tests

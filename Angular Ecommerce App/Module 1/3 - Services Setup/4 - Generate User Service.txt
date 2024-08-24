@@ -1,0 +1,3 @@
+under ecommerceapp -> src -> app -> services
+
+ng g s user --skip-tests

@@ -1,0 +1,43 @@
+// TypeScripts most powerful feature, generics
+// A generic type is simply a meta type
+// a type that represents any other type that you might want to substitute in.
+
+
+interface Contact {
+    id: number;
+    name: string;
+}
+
+interface UserContact {
+    id: number;
+    name: string;
+    username: string;
+}
+
+// defining the generic type parameter <T> right before the parameter
+// you can use any valid type name as generic type parameter
+// function clone<T>(source: T): T {
+//     return Object.apply({}, source);
+// }
+
+// const a: Contact = { id: 123, name: "prabhu" };
+
+// const b = clone(a);
+
+// Advanced generic type parameter
+// function clone<T1, T2>(source: T1): T2 {
+//     return Object.apply({}, source);
+// }
+
+// const a: Contact = { id: 123, name: "prabhu" };
+
+// const b = clone<Contact, Contact>(a);
+
+// generic type constraints
+function clone<T1, T2 extends T1>(source: T1): T2 {
+    return Object.apply({}, source);
+}
+
+const a: Contact = { id: 123, name: "prabhu" };
+
+const b = clone<Contact, UserContact>(a);

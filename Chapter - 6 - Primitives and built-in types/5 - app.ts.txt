@@ -1,0 +1,19 @@
+// TypeScript has Type Inferred Feature
+// Hover over using your mouse  to x variable see data type by assigned value
+let x = 'a';
+
+
+// Declare variable with data type
+let y: number;
+
+let z: string;
+
+let data: any;
+
+let dob: Date;
+
+let choice: boolean;
+
+let juice: string[];
+
+y = "hello" as any;

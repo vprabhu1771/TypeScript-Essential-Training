@@ -1,0 +1,3 @@
+under DropDownApp -> src -> app -> models
+
+ng g class category --type=model --skip-tests

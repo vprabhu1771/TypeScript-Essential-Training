@@ -1,0 +1,89 @@
+// When you write code you'll often need to reference various kinds of hard-coded values
+// For Instance, let's say that in our application
+// a contact can also have a status value 
+// Which indicates the various states that a contact can be in
+// Such as Active, Inactive, New, or Otherwise
+
+// In order to add this property. 
+
+// type ContactName = string
+
+// interface Contact {
+//     id: number;
+//     name: ContactName;
+//     birthDate?: Date;
+//     // i could define it as a string property like this
+//     status: string;
+// }
+
+// let primaryContact: Contact = {
+//     birthDate: new Date("01-01-1980"),
+//     id: 12345,
+//     name: "Rajesh",
+    // which would allow me to assign the values i need, like this Active or Inactive
+    // The problem with this approach is that the string type allows me to assign any string such as Happy
+    // status: "Active"
+    // or consider a more nefarious example this one is a misspelling with a 1 instead of an I
+    // that would introduce a variety of bugs that would be very diffult to spot
+    // status: "1nactive"
+    
+// }
+
+
+// TypeScript can help me with that in a few ways The first technique that TypeScript offers
+// to avoid mistakes like these is called an enum
+
+type ContactName = string
+
+// Enums are a special type that has a hard-coded list of values and is defined like this.
+
+// enum ContactStatus {
+//     Active,
+//     Inactive,
+//     New
+// }
+
+// TypeScript does however allow you to use string values in your enums
+// It's as simple as this 
+// Here i've used to same words in lowercase 
+// However, you can use whatever string or number values you like
+// as long as every value in the enum is the same type
+// With this change in place I can now hover over the value again
+// and see that the value at runtime will be the string value Active 
+
+// This value and all other enum values you define will be the same everywhere you use them
+// More Importantly because TypeScript knows all of the possible values
+// It can give you much better autocomplete suggestions
+// and even output compilation errors
+// If you manage to use an enum property that doesn't exist or is spelled wrong
+enum ContactStatus {
+    Active = "active",
+    Inactive = "inactive",
+    New = "new"
+}
+
+interface Contact {
+    id: number;
+    name: ContactName;
+    birthDate?: Date;
+    status: ContactStatus
+}
+
+let primaryContact: Contact = {
+    birthDate: new Date("01-01-1998"),
+    id: 12345,
+    name: 'Rajesh',
+    
+    // Once an enum is defined I can refer to it just as i would any other type
+    // In Our Contact case I can replace my string type with the ContactStatus enum
+    // Unlike many other TypeScripts syntaxes that get stripped away at compile time
+    // Enums do get compiled along with the rest of your code
+    // This allows you to refer to these types at runtime like this
+
+    status: ContactStatus.Inactive
+
+    // This is Not a drop in replacement for string values however
+    // If i hover over the value, I see that TypeScript tells me 
+    // That this enum represents the value zero since it's the first value that i defined in the enum
+    // eg: Active is 0, Inactive is 1, New is 2
+}

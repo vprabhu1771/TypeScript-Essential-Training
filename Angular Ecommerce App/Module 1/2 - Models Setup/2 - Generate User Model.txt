@@ -1,0 +1,3 @@
+under ecommerceapp -> src -> app -> models
+
+ng g class user --type=model --skip-tests
